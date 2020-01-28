@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "XamlUiaTextRange.h"
 #include "UiaTextRange.hpp"
-
+#include <UIAutomationClient.h>
 namespace UIA
 {
     using ::ITextRangeProvider;
@@ -86,9 +86,9 @@ namespace winrt::Microsoft::Terminal::TerminalControl::implementation
                                                                   bool ignoreCase)
     {
         UIA::ITextRangeProvider* pReturn;
-        BSTR bs = SysAllocStringLen(text.data(), text.size());
+        const auto bs = wil::make_bstr(text.c_str());
 
-        THROW_IF_FAILED(_uiaProvider->FindText(bs, searchBackward, ignoreCase, &pReturn));
+        THROW_IF_FAILED(_uiaProvider->FindText(bs.get(), searchBackward, ignoreCase, &pReturn));
 
         auto xutr = winrt::make_self<XamlUiaTextRange>(pReturn, _parentProvider);
         return xutr.as<XamlAutomation::ITextRangeProvider>();
