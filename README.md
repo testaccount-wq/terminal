@@ -213,7 +213,7 @@ This is a work in progress as we learn what we'll need to provide people in orde
 
 # Code of Conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct][conduct-code].
+This projct has adopted the [Microsoft Open Source Code of Conduct][conduct-code].
 For more information see the [Code of Conduct FAQ][conduct-FAQ] or contact [opencode@microsoft.com][conduct-email] with any additional questions or comments.
 
 [conduct-code]: https://opensource.microsoft.com/codeofconduct/
